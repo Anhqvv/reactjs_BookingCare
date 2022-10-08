@@ -1,38 +1,106 @@
 #customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: #ddd;}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
+  font-family    : Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width          : 100%;
+}
 
-  }
+#customers td,
+#customers th {
+  border : 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top     : 12px;
+  padding-bottom  : 12px;
+  text-align      : left;
+  background-color: #04AA6D;
+  color           : white;
+
+}
+
 #customers {
   .btn-edit {
-    padding: 6px;
-    font-size: 25px;
-    margin: 0 20px;
+    padding         : 6px;
+    font-size       : 25px;
+    margin          : 0 20px;
     background-color: transparent;
-    color: yellowgreen;
+    color           : yellowgreen;
   }
+
   .btn-delete {
-    padding: 6px;
-    font-size: 25px;
+    padding         : 6px;
+    font-size       : 25px;
     background-color: transparent;
-    color: #333;
+    color           : #333;
   }
+}
+
+.user-title {
+  h2 {
+
+    margin: 0;
+
+  }
+
+  color           : #333;
+  border-radius   : 5px;
+  padding         : 8px;
+  display         : inline-block;
+  cursor          : pointer;
+  background-color: dodgerblue;
+  margin-bottom   : 20px;
+}
+
+
+.modal-user-container {
+  .modal-header {
+    button {
+      background-color: transparent;
+
+      padding: 5px;
+
+      span {
+        font-size: 30px;
+        color: white;
+      }
+    }
+  }
+
+  .modal-user-body {
+    display: flex;
+    gap    : 10px;
+
+
+    .input-container {
+
+      margin        : 10px 0;
+      font-size     : 16px;
+      display       : flex;
+      flex-direction: column;
+      width         : 50%;
+
+      input {
+        width        : 100%;
+        padding      : 0 5px;
+        height       : 30px;
+        border-radius: 3px;
+        border       : 1px solid #ccc
+      }
+
+      &.max-w-input {
+        width: 100%;
+      }
+    }
+  }
+
+
 }
