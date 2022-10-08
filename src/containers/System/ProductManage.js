@@ -3,9 +3,14 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 class ProductManage extends Component {
 
-    state = {
+    constructor(props){
+        super()
+        this.state={
+
+        }
 
     }
+
 
     componentDidMount() {
     }
