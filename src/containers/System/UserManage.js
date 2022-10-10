@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 // import { FormattedMessage } from "react-intl";
 import { connect } from 'react-redux';
 import './UserManage.scss';
-import { getAllUsers, createNewUserApi } from '../../services/userService';
+import { getAllUsers, createNewUserApi,deleteUserApi } from '../../services/userService';
 import ModalUser from './ModalUser';
+import { emitter } from '../../utils/emitter';
 class UserManage extends Component {
     constructor(props) {
         super(props);
@@ -40,12 +41,27 @@ class UserManage extends Component {
             }
             if (res && res.errCode === 0) {
                 await this.getAllUsersFromReact();
+                this.setState({
+                    isOpenModal: false,
+                });
+                emitter.emit('EVENT_CLEAR_MODAL_DATA',data)
             }
             // console.log('[DAD] give data,', data)
         } catch (e) {
             console.log(e);
         }
     };
+
+    hanleClickDelete = async (user) => {
+      let res = await deleteUserApi(user.id)
+      console.log('res hanleClickDelete', res)
+      if(res && res.errCode === 0){
+         await this.getAllUsersFromReact();
+      }
+
+
+    }
+
     render() {
         const { arrUsers } = this.state; //destruturing
         //   console.log(">>> Checking state current", this.state.arrUsers);
@@ -85,7 +101,9 @@ class UserManage extends Component {
                                                 <button className="btn-edit" type="">
                                                     <i className="fas fa-edit"></i>
                                                 </button>
-                                                <button className="btn-delete" type="">
+                                                <button className="btn-delete" type=""
+                                                onClick={ () => this.hanleClickDelete(user)}
+                                                >
                                                     <i className="fas fa-trash"></i>
                                                 </button>
                                             </td>
